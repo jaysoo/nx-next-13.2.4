@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nextrepo2/jslib": ["libs/jslib/src/index.ts"],
       "@nextrepo2/ui1": ["libs/ui1/src/index.ts"]
     }
   },

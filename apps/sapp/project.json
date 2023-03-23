@@ -1,29 +1,20 @@
 {
-  "name": "demo",
+  "name": "sapp",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/demo",
+  "sourceRoot": "apps/sapp",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/demo",
-        "outputPath": "dist/apps/demo",
-        "assets": [
-          {
-            "glob": "**/*",
-            "input": "libs/ui1/src/assets",
-            "output": "ui"
-          }
-        ]
+        "root": "apps/sapp",
+        "outputPath": "dist/apps/sapp"
       },
       "configurations": {
         "development": {
-          "outputPath": "tmp/apps/demo"
+          "outputPath": "apps/sapp"
         },
         "production": {}
       }
@@ -32,16 +23,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "demo:build",
+        "buildTarget": "sapp:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "demo:build:development",
+          "buildTarget": "sapp:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "demo:build:production",
+          "buildTarget": "sapp:build:production",
           "dev": false
         }
       }
@@ -49,16 +40,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "demo:build:production"
+        "buildTarget": "sapp:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/demo/jest.config.ts",
+        "jestConfig": "apps/sapp/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -70,13 +59,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/demo/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["apps/sapp/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
